@@ -3,66 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For Kim</title>
-    <style>
-        body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            margin: 0;
-            background-color: #f0f0f0;
-            font-family: Arial, sans-serif;
-        }
-        .postcard-gallery {
-            display: flex;
-            gap: 20px;
-            margin: 20px 0;
-        }
-        .postcard-gallery img {
-            max-width: 300px;
-            border: 5px solid #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-        }
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            background-color: #ffcc00;
-            border: none;
-            border-radius: 5px;
-        }
-        button:hover {
-            background-color: #e6b800;
-        }
-    </style>
+    <title>for kim</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <script>
-        alert("Happy Bday Kim! 🎉");
+        alert("hampy bday");
     </script>
-    <h1>For Kim</h1>
     <div class="postcard-gallery">
         <img src="/postcard/1.png" alt="Postcard 1">
         <img src="/postcard/2.png" alt="Postcard 2">
     </div>
-    <audio id="birthdaySong" loop>
-        <source src="/bday/1975.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
+    <audio autoplay loop>
+        <source src="1975.mp3" type="audio/mpeg">
     </audio>
-    <button onclick="playAudio()">Play Birthday Song</button>
-
-    <script>
-        const audio = document.getElementById("birthdaySong");
-        function playAudio() {
-            audio.play().catch(error => {
-                console.log("Autoplay blocked:", error);
-                alert("Please allow audio playback or click the button again!");
-            });
-        }
-        // Attempt to autoplay on load, but it might be blocked
-        playAudio();
-    </script>
+      
 </body>
 </html>
