@@ -1,0 +1,7 @@
+- this morning
+	- [ ] prepare for every scene
+	- [ ] how to shot em
+	- [ ] prepare the poster
+	- [ ] edit me and kim's vlog
+	- [ ] download all needed editing files
+	- [ ] cs week frame

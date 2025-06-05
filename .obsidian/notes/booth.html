@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Birthday Photobooth 🎂</title>
+  <style>
+    body {
+      font-family: 'Comic Sans MS', cursive;
+      background: linear-gradient(to bottom right, #ffe4ec, #d4f1f4);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      text-align: center;
+    }
+    h1 {
+      color: #ff69b4;
+    }
+    video, canvas {
+      border: 5px dashed #ffb6c1;
+      background-image: url();
+      border-radius: 20px;
+      max-width: 90vw;
+    }
+    button {
+      margin-top: 1rem;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      background-color: #ff69b4;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #ff1493;
+    }
+  </style>
+</head>
+<body>
+  <h1>Happy Birthday, Friend! 🎉📸</h1>
+  <video id="video" autoplay></video>
+  <br>
+  <button onclick="takePhoto()">Snap Photo ✨</button>
+  <canvas id="canvas" style="display: none;"></canvas>
+  <a id="download" style="display: none; margin-top: 1rem;">Download Photo 💾</a>
+
+  <script>
+    const video = document.getElementById('video');
+    const canvas = document.getElementById('canvas');
+    const download = document.getElementById('download');
+
+    navigator.mediaDevices.getUserMedia({ video: true })
+      .then(stream => {
+        video.srcObject = stream;
+      })
+      .catch(err => {
+        alert("Oops! Can't access camera 😢");
+        console.error(err);
+      });
+
+    function takePhoto() {
+      const context = canvas.getContext('2d');
+      canvas.width = video.videoWidth;
+      canvas.height = video.videoHeight;
+      context.drawImage(video, 0, 0);
+
+      canvas.style.display = 'block';
+      const image = canvas.toDataURL('image/png');
+
+      download.href = image;
+      download.download = 'birthday_photo.png';
+      download.style.display = 'inline';
+      download.textContent = 'Download Photo 💾';
+    }
+  </script>
+</body>
+</html>
